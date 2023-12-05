@@ -1,0 +1,10 @@
+/// create card we must use flex not grid
+$grid-column : 12 ;
+@for $i from 1 through $grid-column {
+    .col-#{$i}{
+        width : percentage($i / $grid-column);
+        height: 100px;
+        padding: 10px;
+        border: 2px solid yellow;
+    }
+}

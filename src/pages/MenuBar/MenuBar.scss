@@ -1,0 +1,238 @@
+@use "../../SASS/Main" as *;
+
+.backgroundSideBar {
+  @include flex-center;
+  @include size(100%, 100%);
+  background-color: #ffffff7d;
+  position: fixed;
+  top: 0;
+  right: 0;
+  opacity: 0;
+  transition: 0.5s;
+  z-index: -300;
+}
+.menuBar {
+  @include size(500px, 100%);
+  background-color: $second-color;
+  position: fixed;
+  top: 0;
+  right: 0;
+  transition: 0.8s;
+  z-index: 300;
+}
+
+.headBar {
+  @include flex-between;
+  margin-top: 20px;
+}
+.close {
+  position: relative;
+  @include size(50px, 50px);
+}
+
+.close .one {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  @include size(25px, 2px);
+  transform: rotate(45deg);
+  background-color: white;
+}
+.close .two {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  @include size(25px, 2px);
+  transform: rotate(135deg);
+  background-color: white;
+}
+.close:hover {
+  animation: span 0.5s linear;
+}
+//bodyBar
+
+.BodyBar {
+  @include size(100%, 60vh);
+  @include flex-center;
+  justify-content: start;
+  margin: 30px 0;
+}
+.linkMenuBar {
+  @include size(100%, 100%);
+  @include flex-between;
+  align-items: start;
+  flex-direction: column;
+}
+.linkMenuBar li {
+  width: fit-content;
+}
+.linkMenuBar a {
+  width: fit-content;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 2;
+  position: relative;
+  padding: 10px 0;
+  color: white;
+  text-transform: uppercase;
+  opacity: 0;
+}
+
+.linkMenuBar a::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1px;
+  width: 0;
+  background-color: $main-color;
+  transition: 0.5s;
+}
+.linkMenuBar li:hover a::after {
+  width: 100%;
+}
+
+//move menuBar
+
+.hideMenuBar {
+  transform: translateX(500px);
+}
+.apearMenuBar {
+  transform: translateX(0px);
+}
+.hideBackground {
+  opacity: 0;
+  z-index: -300;
+}
+.apearBackground {
+  opacity: 1;
+  z-index: 300;
+}
+
+//animation links
+@keyframes FromBottomLink {
+  0% {
+    transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@mixin FromBottomlink($duration, $delay) {
+  animation: FromBottomLink $duration $delay linear 1 forwards;
+}
+
+.fromBottom {
+  @include FromBottomlink(0.5s, 0.2s);
+}
+.fromBottom1 {
+  @include FromBottomlink(0.5s, 0.4s);
+}
+.fromBottom2 {
+  @include FromBottomlink(0.5s, 0.6s);
+}
+.fromBottom3 {
+  @include FromBottomlink(0.5s, 0.8s);
+}
+.fromBottom4 {
+  @include FromBottomlink(0.5s, 1s);
+}
+.fromBottom5 {
+  @include FromBottomlink(0.5s, 1.2s);
+}
+.fromBottom6 {
+  @include FromBottomlink(0.5s, 1.4s);
+}
+//social icons
+.social {
+  @include size(100%, fit-content);
+  @include flex-center;
+  justify-content: start;
+}
+
+.iconSocial {
+  color: white;
+  font-size: 20px;
+  @include circle(20px);
+  border: none;
+  transition: 0.5s;
+}
+
+.iconBackground {
+  @include flex-center;
+  border-radius: 50%;
+  padding: 20px;
+  transition: 0.5s;
+}
+.iconBackground:hover {
+  background-color: $main-color;
+}
+// footer
+.madeBy {
+  @include size(100%, 100%);
+  @include flex-center;
+  text-align: center;
+  color: $main-color;
+  font-size: 14px;
+}
+.madeBy a {
+  font-size: 18px;
+  text-decoration: underline;
+}
+//logoT
+.LogoT {
+  @include flex-center;
+  @include size(50px , 50px );
+  border-radius: 10px;
+
+  border: 3px solid #0000;
+  background: linear-gradient(#113f67, #113f67) padding-box,
+    linear-gradient(var(--angle), #070707, #72f5fe) border-box;
+
+  animation: 8s rotate linear infinite;
+}
+.LogoT h1 {
+    font-family: 'Playball', cursive;
+    color: #113f67;
+    text-shadow: 0px 1px 4px white;
+}
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+//##########################
+
+//mobile
+@media (max-width: 420px) {
+  .menuBar {
+    @include size(100%, 100%);
+  }
+  .hideMenuBar {
+    transform: translateX(100%);
+  }
+  .backgroundSideBar {
+    display: none;
+  }
+  .social {
+    gap: 0px;
+  }
+  .iconBackground {
+    padding: 10px;
+  }
+  .madeBy {
+    font-size: 12px;
+  }
+  .madeBy a {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}

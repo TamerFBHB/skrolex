@@ -1,0 +1,183 @@
+@use "../../SASS/_Main.scss" as * ;
+
+
+.home{
+    @include flex-col ;
+    @include size(100% ,100%);
+    min-height: 100vh;
+    background: linear-gradient(to right, #00B3FF , $second-color 80%);
+}
+::-webkit-scrollbar-thumb{
+    background-color: $main-color;
+}
+::-webkit-scrollbar {
+    background-color: white;
+    width: 10px;
+}
+.home-page{    
+    @include flex-center ;
+    align-items: end ;
+}
+.details{
+    color: white ;
+    @include size(50%, 50%);
+    opacity: 0;
+}
+.details h1{
+    margin: 10px 0;
+    font-size: 50px;
+}
+.details p{
+    color: white ;
+    width: 100% ;
+    line-height: 25px;    
+}
+
+.btn{
+    @include flex-center ;
+    @include size(250px , 50px);
+    text-transform: uppercase;
+    background-color: white;
+    color:  $main-color;
+    padding: 15px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.5s;
+    margin: 20px 0;
+    z-index: 50;
+}
+.btn:hover{
+    color: white;
+    background-color: #00008a;
+}
+.image{
+    height: 60%;
+    width: 40% ;
+    @include flex-center ;
+    opacity: 0;
+}
+.image img{
+    height: 60%;
+    width: 90%;
+}
+.taps{
+    width: 100%;
+    background-color: $main-color;
+}
+.tap{
+    @include flex-center;
+    flex-wrap: wrap;
+    color: white;
+    min-height: 35vh;
+}
+.tap .lap{
+    flex-basis: 300px;
+    flex-grow: 1;
+    height:  35vh;
+    @include flex-col;
+    align-items: start;
+    padding: 10px 20px;
+    opacity: 0;
+
+    background: linear-gradient(to bottom, #00B3FF 50%, $main-color 50%);
+    background-size: 105% 205%;
+    background-position: bottom right;
+    transition: 0.5s;
+}
+.tap .lap .icon{
+    font-size: 50px;
+    margin-bottom: 20px;
+    transition: 0.5s;
+    
+}
+.tap .lap:hover .icon{    
+    transform:  rotateY(-180deg);
+
+}
+.tap .lap p{
+    width: 90%;
+}
+.tap .lap h1{
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.tap .lap:hover{
+    background-position: top right;
+}
+
+//animation
+.ApearFromRight{
+    @include FromRight(0.5s);
+    opacity: 1;
+}
+.ApearFromLeft{
+    @include FromLeft(0.5s);
+    opacity: 1;
+}
+
+.FadeIn-0{
+    @include FadeIn(1s , 0s);
+}
+.FadeIn-1{
+    @include FadeIn(1s , 0.2s);
+}
+.FadeIn-2{
+    @include FadeIn(1s , 0.4s);
+}
+//mobile size
+@media (max-width:992px) {
+    .home-page{
+        flex-direction: column-reverse;
+        min-height: 100%;
+    }
+    .image{
+        @include flex-center;
+        align-items: end;
+        min-height: 100%;
+        width: 100% ;
+    }
+    .image img{
+        width: 60% ;
+    }
+    .details{
+        @include size(100%, 100%);
+        @include flex-col;
+    }
+    .details p{
+        text-align: center;
+    }
+
+    .tap .lap{
+        width: 100%;
+        text-align: center;
+        @include flex-center;
+    }
+    .tap .lap h1{
+        font-size: 25px;
+    }
+    .tap .lap p{
+        font-size: 14px;
+    }
+}
+@media (max-width:768px) {
+    .details h1{
+        font-size: 40px;
+    }
+    .tap{
+        @include flex-col;
+    }
+
+}
+@media (max-width:768px) {
+    .details h1{
+        font-size: 30px;
+    }
+    .btn{
+        @include size(200px , 50px);
+        font-size: 13px;
+    }
+
+}
+

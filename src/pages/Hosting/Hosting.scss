@@ -1,0 +1,266 @@
+@use "../../SASS/Main" as * ;
+
+
+.host{
+    margin: 50px 0;
+    @include size(100% ,70vh) ;
+    @include flex-center ;
+}
+.video{
+    position: relative;
+    @include size(50% , 100%);
+    @include flex-center ;
+    opacity: 0;
+}
+.movie{
+    position: absolute;
+    border:10px solid #f2f2f2;
+    @include size(85% , 70%);
+    @include center;
+}
+.backvideo{
+    position: absolute;
+    top: 45% ;
+    left: 25%;
+    @include size(75% , 50%);
+    background-color: $second-color;
+}
+.iconPlay{
+    @include size(25px , 25px);
+    color:$main-color;
+    z-index: 50;
+}
+.circle{
+    position: absolute;
+    transform: translate(25%,25%);
+    @include flex-center;
+    @include circle(60px);
+    border-color:$main-color;
+    cursor: pointer;
+    z-index: 50;
+}
+.circle:hover{
+    background-color: $main-color;
+}
+.shadow{
+    position: absolute;    
+    @include circle(60px);    
+    border-color:$main-color;
+    z-index: 40;
+}
+.circle:hover .shadow{
+    background-color: $main-color;
+    animation: wow 1s infinite 0.5s ;
+}
+.circle:hover .iconPlay{
+    color: white;
+}
+
+.backYouTube{
+    position: absolute;
+    @include size(100% , 100vh);
+    @include flex-center ;
+    visibility: hidden;
+    transition: 1s;
+    z-index: 60;
+}
+
+.youtube{
+    @include size(70%,70%);
+}
+.hidden{    
+    visibility: hidden;
+    opacity: 0;
+}
+.sea{
+    visibility: visible;
+    opacity: 1;
+}
+.inform{
+    padding: 50px;
+    @include size(50% , 100%);
+    @include flex-col ;
+    align-items: start;
+    gap: 20px;
+    color: $text-Color;
+    transform: translateX(100px);
+    opacity: 0;
+}
+.inform p{
+    margin-right: 20px;
+    line-height: 22px;
+}
+.inform h1{
+    font-weight: 400;
+    font-size: 40px;
+    color: $main-color;
+}
+.inform h2{
+    font-weight: 400;
+}
+.btnn{
+    border: 2px solid $second-color;
+    border-radius: 30px;
+    color: $second-color;
+    @include size(150px , 50px);
+    @include flex-center;
+    transition: 0.3s;
+}
+.btnn:hover{
+    background-color: $second-color;
+    color: white;
+}
+
+.counter{
+    @include flex-center;
+    justify-content: space-between
+}
+.number{
+    @include flex-col;
+    text-align: center;
+    padding: 10px;
+}
+.number .prog{
+    width: 200px;
+    height: 200px;
+}
+.number h2{
+    margin: 20px 0;
+    color: $main-color;
+    font-weight: 300;
+}
+.number p{
+    color: $text-Color;
+    font-size: 20px;
+}
+
+
+.reliable{
+    margin: 30px 0;
+    width: 100%;
+    height: 50vh;
+    position: relative;
+}
+.reliable img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.reliable .information{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include flex-col;
+    gap: 25px;
+    line-height: 50px;
+    opacity: 0;
+}
+.reliable .information h1{
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    width: 100%;
+}
+.btnn:hover{
+    transform: scale(1.1);
+}
+.btnn:active{
+    transform: scale(1);
+}
+
+//animation
+.ApearFromRight{
+    @include FromRight(0.5s);
+    opacity: 1;
+}
+.ApearFromLeft{
+    @include FromLeft(0.5s);
+    opacity: 1;
+}
+.FadeIn-0{
+    @include FadeIn(0.5s , 0s);
+}
+.ApearFromBottom{
+    @include FromBottom(0.5s,1.5s);
+    opacity: 1;
+}
+
+// mobile size
+@media (max-width:992px) {
+    .host{
+        @include size(100% ,40vh) ;
+    }
+    .inform{
+        align-items: center;
+        padding: 0;
+    }
+    .inform h1{
+        text-align: center;
+    }
+    .inform p{
+        text-align: center;
+    }
+    .youtube{
+        @include size(95%,95%);
+    }
+}
+@media (max-width:768px) {
+    .host{
+        @include size(100% , 100vh);
+        @include flex-col ;
+        flex-direction: column-reverse;
+        gap: 0;        
+    }
+    .video{
+        @include size(100% , 50%);
+    }
+    .movie{
+        @include size(90% , 85%);
+    }
+    .backvideo{
+        top: 35% ;
+        right: 0;
+        @include size(80% , 70%);
+    }
+    .inform{      
+        @include size(100% , 50%);
+        padding: 0;
+    }
+    
+    .inform h1{
+        font-size: 30px;
+    }
+    .inform p{
+        margin-right: 0px;
+    }
+    .counter{
+        @include flex-col;
+        gap: 30px;
+    }
+    .reliable h1{
+        font-size: 30px;
+    }
+}
+@media (max-width : 420px) {
+    .host{
+        gap: 10px;
+    }
+    .movie{
+        @include size(85% , 80%);
+    }
+    .backvideo{
+        top: 30% ;
+        left: 23%;
+    }
+    .inform{
+        height: 60%;
+        gap: 10px;
+    }
+    .reliable .information h1{
+        font-size: 25px;
+    }
+    .inform{
+        transform: translateX(0px);
+        opacity: 0;
+    }
+}

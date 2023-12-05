@@ -1,0 +1,163 @@
+@use "../../SASS/Main" as *;
+
+.pricing{
+    padding: 50px 0;
+}
+.pricing .title{
+    @include flex-col;
+    gap: 15px;
+    color: $title-color;
+    opacity: 0;
+}
+.pricing .title h1{
+    font-size: 35px;
+    text-align: center;
+}
+.pricing .title p{
+    text-align: center;
+    margin: 0 10%;
+    line-height: 25px;
+    color: $text-Color;
+}
+.CardPlan{
+    @include flex-center ;
+    flex-wrap: wrap; 
+    min-height: 90vh;
+    margin: 50px auto;
+    padding: 20px;
+    gap: 25px;
+}
+.card{
+    box-shadow: 0px 0px 5px #cdcdcd;
+    Flex-grow : 1;
+    flex-basis: 250px;
+    height: 100%;
+}
+.starter ,.premium {
+    opacity: 0;
+    @include size(100% , 70%);
+}
+.standard {
+    @include size(100% , 100%);
+}
+.starter .headerCard,
+.premium .headerCard{
+    @include flex-center;
+    @include size(100% , 70px);
+    background-color: $main-color;
+    color: white;    
+}
+.standard .headerCard{
+    @include flex-center;
+    @include size(100% , 100px);
+    background-color: $second-color;
+    color: white;
+}
+.headerCard h2{
+    font-weight: 400;
+}
+.bodyCard{
+    @include size(100%, calc(100% - 70px));
+    @include flex-col;
+    gap: 30px;
+    padding: 15px;
+}
+.starter .bodyCard, .premium .bodyCard{
+    background-image: linear-gradient(to left, white 50%,   $second-color 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: 0.3s;
+}
+.starter .bodyCard:hover, .premium .bodyCard:hover{
+    background-position: left top;
+    color: white;
+}
+
+.standard .bodyCard{
+    @include size(100%, calc(100% - 100px));
+    background-image: linear-gradient(to left, white 50%,   $main-color 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: 0.3s;
+}
+.standard .bodyCard:hover{
+    background-position: left top;
+    color: white;
+}
+.standard .bodyCard:hover h1,.standard .bodyCard:hover h3{ 
+    color: white;
+}
+.starter .bodyCard:hover h1,.premium .bodyCard:hover h3,
+.premium .bodyCard:hover h1,.starter .bodyCard:hover h3{ 
+    color: white;
+}
+.bodyCard h1{
+    font-size: 36px;
+    font-weight: 400;
+    text-align: center;
+    color: $main-color;
+}
+.bodyCard h3{
+    text-align: center;
+    color: $main-color;
+}
+.starter, .premium {
+    @include size(100% , 90%);
+}
+
+.butn{
+    @include size(50% , 50px);
+    @include flex-center ;
+    cursor: pointer;
+    border-radius: 30px;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+.starter .butn, .premium .butn{
+    background-color: $main-color;
+}
+.standard .bodyCard .butn{
+    background-image: linear-gradient(
+        to right,
+        #00b7ff 0%,
+        #0176ff 51%,
+        #00b7ff 100%
+        );
+    background-size: 200% auto;
+}
+.starter .butn:hover, .premium .butn:hover{
+    background-color: white;
+    color: $main-color;
+}
+.standard .bodyCard .butn:hover{
+    background-position: right center;
+}
+
+//animation
+
+.ApearFromRight{
+    @include FromRight(0.5s);
+    opacity: 1;
+}
+.ApearFromLeft{
+    @include FromLeft(0.5s);
+    opacity: 1;
+}
+
+.zoomIn{    
+    @include zoomIn(0.5s,0s);
+}
+
+
+@media (max-width:420px) {
+    .pricing .title h1{
+        font-size: 30px;
+    }
+    .pricing .title p{
+        margin: 0 ;
+    }
+    .CardPlan{
+        min-height: 90vh;
+    }
+}

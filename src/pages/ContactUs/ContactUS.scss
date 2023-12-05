@@ -1,0 +1,96 @@
+@use "../../SASS/Main" as *;
+
+
+.contacts{
+    background: linear-gradient(to right, #00B3FF , $second-color 80%);
+}
+.contact{
+    @include flex-center;
+    padding: 50px 0;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.title-contact{
+    @include flex-col ;
+    flex-basis: 200px;
+    padding: 20px;
+    gap: 20px;
+    color: White;
+}
+//logo T
+.title-contact .LogoT {
+    @include flex-center;
+    @include circle(100px) ;
+
+    border: 3px solid #0000;
+    background: linear-gradient(#113f67, #113f67) padding-box,
+    linear-gradient(var(--angle), #070707, #ffffff) border-box;
+    animation: 8s rotate linear infinite;
+    }
+.title-contact .LogoT h1 {
+    font-family: 'Playball', cursive;
+    font-size: 50px;
+    color: #113f67;
+    text-shadow: 0px 1px 4px white;
+}
+//##########
+
+.title-contact h1{
+    font-family: 'Playball', cursive;
+    letter-spacing: 3px;
+}
+.title-contact h3{
+    font-weight: 300;
+}
+
+.id{
+    @include flex-col ;
+    flex-basis: 400px;
+    flex-grow: 1;
+    padding: 20px;
+    gap: 20px;
+}
+.id input{
+    @include size(100%, 60px);
+    background-color: $second-color;
+    outline: none;    
+    padding-left: 15px;
+    border : 1px solid ;
+    border-color: transparent transparent white;
+    color: white;
+    font-size: 18px;
+}
+::placeholder{
+    color: white;
+    font-size: 16px
+}
+.letsGo {
+    @include flex-col ;
+    flex-basis: 300px;
+    padding: 20px;
+    gap: 20px;
+}
+.letsGo input{
+    background-color: white;
+    border: none;
+    @include size(80% , 50px);
+    border-radius: 35px;
+    color: $main-color;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.end .letsGo input:hover{
+    color: white;
+    background-color: $main-color;
+}
+.end textarea{
+    @include size(100% , 150px);
+    background-color: $second-color;
+    outline: none;    
+    padding-left: 15px;
+    border : 1px solid ;
+    border-color: transparent transparent white;
+    color: white;
+    font-size: 18px;
+}

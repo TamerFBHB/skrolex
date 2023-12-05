@@ -1,0 +1,48 @@
+
+/// flex
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+// grid
+@mixin grid-cols($col){
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($col, 1fr));
+}
+@mixin grid-rows($row){
+    display: grid;
+    grid-template-rows: repeat(auto-fill, minmax($row, 1fr));
+}
+
+/// create circle
+@mixin circle($dimention){
+    Border-radius : 50% ;
+    Width : $dimention ;
+    height : $dimention ;
+    border: 2px solid black;
+}
+
+@mixin size($w,$h){
+    width:$w ;
+    height : $h ;
+}
+
+//position absolute center
+@mixin center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}

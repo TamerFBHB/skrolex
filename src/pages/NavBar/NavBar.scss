@@ -1,0 +1,80 @@
+@use "../../SASS/Main" as *;
+
+
+.navBar{   
+    @include flex-between ;
+    @include size(100% , 100px);
+    z-index: 200;
+}
+.nav{
+    @include size(100% , 100px);
+    @include flex-between ;
+}
+.links{    
+    @include flex-between ;
+}
+.links li a{
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    // color: $main-color;
+    padding: 8px 23px;
+    text-align: center;
+    transition: 0.3s;
+}
+.active{
+    color: $second-color;
+}
+.noneActive{
+    color: $main-color;
+}
+.links li a:hover{
+    color: $second-color;
+    background-color: #fbfbfb;
+}
+
+//bar menu
+.bar{
+    @include size(35px,25px);
+    @include flex-col ;
+    align-items: end;
+    margin-right: 35px;
+}
+.bar .one, .two ,.three{
+    background-color: $main-color;
+    @include size(100% , 2px) ;
+    transition: 0.3s;
+}
+.bar  .two ,.three{
+    margin-top: 6px;
+}
+.bar:hover .one ,.bar:hover .three{
+    width: 60%;
+}
+// to appear and hidden navbar
+.transfor {
+    top: -100px;
+    }
+    .apeare {
+        position: sticky;
+        top: 0;
+        left: 0;
+        right: 0;
+        transition: 0.5s;
+        background-color: white;
+        box-shadow : 0 8px 10px -6px gray;
+    }
+
+    @media (max-width:992px) {
+        .links{ 
+            display: none;
+        }
+        .navBar{
+            @include size(100% , 80px);
+        }
+        .nav a{
+            justify-content: start;
+        }
+
+    }

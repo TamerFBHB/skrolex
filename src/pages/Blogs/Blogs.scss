@@ -1,0 +1,90 @@
+@use "../../SASS/Main" as * ;
+
+.blog{
+    padding: 50px 0;
+}
+.title-blog{
+    @include flex-col;
+    margin-bottom: 50px;
+    opacity: 0;
+}
+.title-blog h1{
+    font-size: 36px;
+    text-align: center;
+    color : $title-color;
+}
+
+.All-cards{
+    @include flex-center ;
+    gap: 20px;
+    flex-wrap: wrap; 
+    padding: 50px 0;
+}
+.blog-card{
+    flex-basis: 300px;
+    border-radius: 12px;    
+    transition: 0.5s;
+}
+
+.blog-head img{
+    width: 100%;
+}
+.body-card{    
+    @include flex-col;
+    align-items: start;
+    padding: 25px;
+    gap: 15px;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    background-color: white;
+}
+.body-card .date h4{
+    color: $second-color;
+    font-weight: 400;
+    transition: 0.5s;
+}
+.body-card h2{
+    font-weight: 400;
+    color: $title-color;
+    transition: 0.5s;
+}
+.body-card p{
+    color: #9fa4af;
+    line-height: 25px;
+}
+.blog-card .designer{
+    @include flex-center;
+    gap: 10px;
+}
+.blog-card .designer i{
+    color: $second-color;
+    font-weight: 400;
+    transition: 0.5s;
+}
+.blog-card:hover h2{
+    color: $second-color;
+}
+.blog-card:hover i{
+    color: $main-color;
+}
+.blog-card:hover .date h4{
+    color: $main-color;
+}
+.blog-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 1px 1px 10px #bebebe ;
+}
+
+@media (max-width:420px) {
+    .title-blog h1{
+        font-size: 25px;
+        text-align: center;
+        color : $title-color;
+    }
+    .All-cards{
+        padding: 25px 0;
+    }
+    .blog-card{
+        margin-bottom:  15px;
+    }
+}

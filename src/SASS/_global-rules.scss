@@ -1,0 +1,37 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body{    
+    font-family: 'Montserrat', sans-serif;
+}
+.container{
+    margin-left: 10% ;
+    margin-right: 10% ;
+}
+@media (max-width:420px) {
+    .container{
+        margin-left: 5% ;
+        margin-right: 5% ;
+    }
+}
+.red{
+    background-color: red;
+}
+
+
+//global rules
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a{
+    display: block;
+    text-decoration: none;
+    padding: 6px 12px;
+}
